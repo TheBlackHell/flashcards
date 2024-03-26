@@ -1,0 +1,16 @@
+{% extends 'learn.html' %}
+
+{% block learn %}
+<div class="flashcard-learn-container-2">
+  <div class="value-a-container">
+    <p>{{s.value_a}}</p>
+  </div>
+  <div class="multichoice-container">
+    {% for item, index in sl %}
+    <button class="value-a-container" id="b-{{index}}" onclick="checkMultichoiceAnswer('{{index}}', '{{answer}}', 'b-{{index}}')">
+      <p>{{item.value_b}}</p>
+    </button>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

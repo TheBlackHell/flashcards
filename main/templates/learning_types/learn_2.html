@@ -1,0 +1,18 @@
+{% extends 'learn.html' %}
+
+{% block learn %}
+<div class="flashcard-learn-container">
+  <div class="value-a-container">
+    <p>{{item.value_b}}</p>
+  </div>
+  <button class="reveal-container" id="reveal" onclick="
+    document.getElementById('answer').style.filter = 'opacity(100%)';
+    document.getElementById('answer-container').style.backgroundColor = 'rgb(34, 34, 34)';
+    document.getElementById('continue-button').disabled = '';
+    document.getElementById('reveal').disabled = 'disabled';
+  "></button>
+  <div class="value-b-container", id="answer-container">
+    <p id="answer">{{item.value_a}}</p>
+  </div>
+</div>
+{% endblock %}

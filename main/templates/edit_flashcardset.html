@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Bearbeite ein vorhandenes Karteikartenset</h1>
+<div>
+  <form action="#" method="post" class="flashcardset-form">
+    {% csrf_token %}
+    {{ form }}
+    <input class="submit-button" type="submit" value="Submit">
+    <button onclick="location.replace('/create')" class="submit-button">Erstelle ein neues Karteikartenset</button>
+  </form>
+</div>
+{% for item in error %}
+<div class="error-message">
+  <p>{{item}}</p>
+</div>
+{% endfor %}
+{% endblock %}

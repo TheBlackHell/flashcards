@@ -1,0 +1,48 @@
+.learn-button {
+  border-color: rgb(46, 167, 46);
+  border-style: solid;
+  background-color: rgb(46, 167, 46);
+  font-size: 40px;
+  font-weight: 800;
+  text-align: center;
+  width: 100%;
+  border-width: 4px;
+  border-radius: 10px;
+  transition: background-color 0.3s, border-color 0.3s, filter 0.2s;
+  cursor: pointer;
+}
+.learn-button:hover {
+  background-color: rgb(41, 41, 41);
+  border-color: rgb(92, 46, 167);
+}
+.learn-button:active {
+  filter:opacity(0.4);
+  background-color: rgb(41, 41, 41);
+  border-color: rgb(92, 46, 167);
+}
+.learn-button-container {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+.learn-option-container {
+  display: flex;
+  align-items: center;
+}
+.learn-option-container input {
+  width: 15px;
+  height: 15px;
+}
+.learn-option-container label {
+  margin-left: 10px;
+}
+.learn-option-grid {
+  display: grid;
+  margin: 20px 0 20px 0;
+  padding: 10px 20px 10px 20px;
+  background-color: rgb(34, 34, 34);
+  border-radius: 10px;
+  row-gap: 10px;
+}
+.learn-option-grid h1 {
+  margin: 0;
+}

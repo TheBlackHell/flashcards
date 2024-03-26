@@ -1,0 +1,18 @@
+{% extends 'learn.html' %}
+
+{% block learn %}
+<div class="flashcard-learn-container-2">
+  <div class="value-a-container">
+    <p>{{s_a.value_a}}</p>
+  </div>
+  <div class="value-a-container">
+    <p id="value-b"><strong id="value-b-strong">{{s_b.value_b}}</strong></p>
+  </div>
+  <button class="submit-button" id="button-a" onclick="
+    checkTrueFalseAnswer(true, '{{answer}}', 'button-a', '{{s_a.value_b}}');
+  ">Wahr</button>
+  <button class="submit-button" id="button-b" onclick="
+    checkTrueFalseAnswer(false, '{{answer}}', 'button-b', '{{s_a.value_b}}');
+  ">Falsch</button>
+</div>
+{% endblock %}

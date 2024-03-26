@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="flashcardset-info-container-with-i">
+  <div class="i-container" onclick="location.replace('/create/{{ls.identifier}}/flashcards')">
+    <img src="{% static 'images/create/icons8-info-100.png' %}">
+  </div>
+  <div class="info-container">
+    <h1>{{ls.name}} von {{ls.creator}}</h1>
+    <p>
+      {{ls.description}}
+    </p>
+  </div>
+  <div class="del-container" onclick="
+    location.replace('/create/{{ls.identifier}}/del')
+  "></div>
+</div>
+<h1>Füge neue Karteikarten hinzu</h1>
+<div>
+  <form action="#" method="post" class="flashcard-form">
+    {% csrf_token %}
+    {{ form }}
+    <input class="submit-button" type="submit" value="Submit">
+  </form>
+</div>
+{% endblock %}

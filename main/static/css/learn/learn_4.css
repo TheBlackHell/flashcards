@@ -1,0 +1,29 @@
+.multichoice-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 10px;
+}
+.multichoice-container button {
+  border-style: none;
+  font-size: 16px;
+  background-color: rgb(46, 167, 46);
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.2s;
+  border-radius: 10px;
+}
+.multichoice-container button p {
+  margin-top: 7px;
+  margin-bottom: 7px;
+}
+.multichoice-container button:disabled {
+  cursor: not-allowed;
+}
+.multichoice-container button:hover:enabled {
+  background-color: rgb(92, 46, 167);
+}
+.multichoice-container button:active:enabled {
+  filter:opacity(0.4);
+  background-color: rgb(92, 46, 167);
+}
+

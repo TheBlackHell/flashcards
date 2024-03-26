@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="flashcardset-info-container-with-i">
+  <div class="i-container" onclick="location.replace('/create/{{ls.identifier}}')">
+    <img src="{% static 'images/create/icons8-return-100.png' %}">
+  </div>
+  <div class="info-container">
+    <h1>{{ls.name}} von {{ls.creator}}</h1>
+    <p>
+      {{ls.description}}
+    </p>
+  </div>
+  <div class="del-container" onclick="
+    location.replace('/create/{{ls.identifier}}/del')
+  "></div>
+</div>
+{% for item in fc %}
+<div class="flashcard-info-container">
+  <p>{{item.value_a}}</p>
+  <p>{{item.value_b}}</p>
+  <div class=flashcard-delete-container onclick="
+    location.replace('/create/{{ls.identifier}}/flashcards/del={{item.identifier}}')
+  "></div>
+</div>
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Lernen mit Flashcards
+{% endblock %}
+
+{% block content %}
+
+{% block learn %}
+{% endblock %}
+
+<div class="continue-button-container">
+  <button class="submit-button" disabled="disabled" id="continue-button" onclick="
+    function getRandomInt(max) {
+      return Math.floor(Math.random() * max) + 1;
+    }
+    // change the number in getRandomInt to add more different learning types
+    location.replace(location.pathname.slice(0, -1) + getRandomInt(4));
+  ">Nächste Karteikarte</button>
+</div>
+{% endblock %}

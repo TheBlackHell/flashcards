@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Wähle Karteikartensets aus!</h1>
+<div>
+  <form action="#" method="post" class="flashcardset-form">
+    {% csrf_token %}
+    {{ form }}
+    <input class="submit-button" type="submit" value="Submit">
+  </form>
+</div>
+{% for item in error %}
+<div class="error-message">
+  <p>{{item}}</p>
+</div>
+{% endfor %}
+{% for item in fc %}
+<div class="flashcardset-info-container">
+  <div class="info-container">
+    <h1>{{item.name}} von {{item.creator}}</h1>
+    <p>
+      {{item.description}}
+    </p>
+  </div>
+</div>
+{% endfor %}
+{% if fc %}
+<div class="learn-option-grid">
+  <h1>Optionen</h1>
+  <div class="learn-option-container">
+    <input type="checkbox" id="rev-checkbox" value="no-rev">
+    <label for="rev-checkbox">beidseitiges Lernen</label>
+  </div>
+</div>
+<div class="learn-button-container">
+  <button class="learn-button" onclick="
+    const x = document.querySelector('#rev-checkbox');
+    let rev = 'norev'
+    if (x.checked) {
+      rev=''
+    }
+    if (location.href.endsWith('#')) {
+      location.replace(location.href.replace('#', '') + '/learn/'+rev+'1')
+    } else {
+      location.replace(location.href + '/learn/'+rev+'1')
+    }
+  ">Lernen!</button>
+</div>
+{% endif %}
+{% endblock %}

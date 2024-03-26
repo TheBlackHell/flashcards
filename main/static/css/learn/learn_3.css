@@ -1,0 +1,23 @@
+.flashcard-learn-container-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 20px;
+  border-radius: 10px;
+  align-items: center;
+}
+.flashcard-learn-container-2 > .value-a-container {
+  border-radius: 10px;
+}
+.flashcard-learn-container-2 > .submit-button:disabled {
+  cursor: not-allowed;
+  background-color: rgb(46, 167, 46);
+  color: white;
+}
+#value-b strong{
+  font-weight: normal;
+  color: white;
+}
+#value-b {
+  font-weight:700;
+  color: rgb(126, 189, 126);
+}

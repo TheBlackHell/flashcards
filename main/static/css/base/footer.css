@@ -1,0 +1,23 @@
+.footer {
+  background-color: rgb(26, 26, 26);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  min-height: 50px;
+  width: 100%;
+  display: flex;
+}
+.footer div {
+  flex: 1;
+}
+.footer-p1 {
+  color: rgb(170, 170, 170);
+  margin-left: 25px;
+  margin-right: 10px;
+  font-size: 13px;
+}
+.footer-p2 {
+  color: rgb(170, 170, 170);
+  margin-left: 10px;
+  margin-right: 25px;
+  font-size: 13px;
+}
+

@@ -1,0 +1,69 @@
+.flashcardset-form {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  column-gap: 10px;
+}
+.flashcardset-form label {
+  margin-top: 15px;
+  font-size: 18px;
+  flex: 1;
+  font-weight: 500;
+}
+.form_input {
+  font-size: 16px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  flex: 1;
+  background-color: rgb(56, 56, 56);
+  border-style: none;
+  border-radius: 10px;
+  padding: 7px 10px 7px 10px;
+  color-scheme: dark;
+  outline-style: none;
+  resize: none;
+  min-width: 0px;
+}
+.submit-button {
+  font-size: 18px;
+  background-color: rgb(46, 167, 46);
+  margin-top: 20px;
+  border-radius: 10px;
+  font-weight: 600;
+  border-style: none;
+  cursor: pointer;
+  transition: all 0.2s;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.submit-button:hover {
+  background-color: rgb(92, 46, 167);
+}
+.submit-button:active {
+  color: rgba(255, 255, 255, 0.4);
+  background-color: rgba(92, 46, 167, 0.4);
+}
+.error-message {
+  background-color: rgba(209, 51, 51, 0.952);
+  display: grid;
+  grid-template-columns: 1fr;
+  margin: 20px 0 20px 0;
+  border-radius: 10px;
+  text-align: center;
+}
+.error-message p {
+  font-size: 18px;
+  margin: 10px 0 10px 0;
+  font-weight: 800;
+}
+@media (max-width: 450px) {
+  .front-text1 {
+    font-size: 25px;
+  }
+  .front-icon-description img {
+    width: 30px;
+    height: 30px;
+  }
+  .front-icon-description-container {
+    padding: 15px 15px 15px 15px;
+  }
+}

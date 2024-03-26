@@ -1,0 +1,112 @@
+.header {
+  display: flex;
+  flex-direction: row;
+  background-color: rgb(26, 26, 26);
+  align-items: center;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  z-index: 50;
+  top: 0;
+  right: 0;
+  left: 0;
+}
+.logo-container {
+  margin-left: calc(1vw + 18px);
+  max-width: 400px;
+  display: flex;
+  align-items: center;
+}
+.logo-container img {
+  max-width: 60px;
+  max-height: 60px;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  cursor: pointer;
+}
+@media (max-width: 450px) {
+  .logo-container img {
+    max-width: 0;
+  }
+  .logo-container a {
+    margin-left: calc(1vw + 18px);
+  }
+  .logo-container {
+    margin-left: 0;
+  }
+}
+@media (max-width: 350px) {
+  .logo-container a {
+    font-size: 25px;
+  }
+}
+@media (min-width: 351px) {
+  .logo-container a {
+    font-size: 30px;
+  }
+}
+.logo-container a {
+  font-weight: 700;
+  margin: 0;
+  margin-left: 20px;
+  text-decoration: none;
+}
+.button-container {
+  width: 115px;
+  display: flex;
+  justify-content: space-between;
+  margin-right: calc(1vw + 18px);
+  flex-shrink: 0;
+}
+.button-container button {
+  background-color: rgb(46, 167, 46);
+  border-style: none;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  align-items: center;
+  padding: 0;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  position: relative;
+  display: inline-block;
+}
+.button-container button:hover {
+  background-color: rgb(92, 46, 167);
+}
+.button-container button:active img {
+  background-color: rgb(92, 46, 167);
+  filter:opacity(0.4)
+}
+.button-container img {
+  padding-top: 5px;
+  width: 60%;
+  height: 60%;
+  transition: filter 0.1s;
+}
+.middle-container {
+  flex: 1;
+  height: 75px;
+}
+.tooltip-text {
+  visibility: hidden;
+  width: 70px;
+  background-color: rgb(92, 46, 167);
+  color: #ffffffc2;
+  text-align: center;
+  padding: 5px 5px;
+  border-radius: 6px;
+  position: absolute;
+  z-index: 100;
+  top: 110%;
+  left: -30%;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.button-container button:hover .tooltip-text{
+  visibility: visible;
+  opacity: 1;
+}
+.logo-container a:hover .tooltip-text{
+  visibility: visible;
+  opacity: 1;
+}

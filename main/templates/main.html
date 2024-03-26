@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="front-container1">
+  <div class="front-text-header-container">
+    <h1 class="front-text1">Karteikarten erstellen war noch nie so einfach</h1>
+  </div>
+  <div class="front-text-content-container">
+    <div class="front-description-container">
+      <p>
+        Diese Website wurde mit dem Ziel gebaut das Lernen für die Schule oder auch im privaten Bereich deutlich zu
+        vereinfachen und zu verschnellern. 
+      </p>
+      <p>
+        <strong>Willkommen bei Flashcards :)</strong>
+      </p>
+    </div>
+    <div class="front-icon-description-container">
+      <div class="front-icon-description">
+        <img src="{% static 'images/base/icons8-learn-100.png' %}">
+        <p>Lerne mit bereits vorhandenen Karteikartensets</p>
+      </div>
+      <div class="front-icon-description">
+        <img src="{% static 'images/base/icons8-create-100.png' %}">
+        <p>Erstelle neue Karteikartensets oder erweitere alte</p>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
