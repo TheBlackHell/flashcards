@@ -6,7 +6,8 @@ class FlashcardSet(models.Model):
     password = models.CharField(max_length=60)
     description = models.CharField(max_length=1000)
     identifier = models.CharField(max_length=80, unique=True)
-    
+    short_id = models.IntegerField(unique=True)
+
     
 class Flashcard(models.Model):
     flashcardset = models.ForeignKey(FlashcardSet, on_delete=models.CASCADE)

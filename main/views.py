@@ -11,6 +11,7 @@ def main(response):
 
 
 def create_flashcardset(request):
+    counter = FlashcardSet.objects.count()
     if request.method == "POST":
         form = FlashcardSetForm(request.POST)
         if form.is_valid():
@@ -22,7 +23,8 @@ def create_flashcardset(request):
                                          creator=form.cleaned_data["ersteller"],
                                          password=form.cleaned_data["passwort"],
                                          description=form.cleaned_data["beschreibung"], 
-                                         identifier=identifier) 
+                                         identifier=identifier,
+                                         short_id=counter+1) 
             flashcard_set.save()
             return HttpResponseRedirect(f"/create/{identifier}")
     else: 
@@ -77,7 +79,7 @@ def delete_flashcardset(response, id):
     return HttpResponseRedirect(f"/edit")
 
 
-def edit_flashcardset(request, error= None):
+def edit_flashcardset(request, error= None):  
     if request.method == "POST":
         form = EditFlashcardSetForm(request.POST)
         if form.is_valid():
@@ -85,6 +87,7 @@ def edit_flashcardset(request, error= None):
             m = hl.sha256()
             m.update(data.encode())
             identifier = m.hexdigest()
+
             return HttpResponseRedirect(f"/create/{identifier}")
     else: 
         form = EditFlashcardSetForm()
@@ -98,13 +101,13 @@ def select_flashcardset(request, id:str, error= None):
     recom = []
     for cr in ["Martin", "Lena"]:
         try:
-            recom.append(FlashcardSet.objects.get(creator=cr))
+            recom.append(FlashcardSet.objects.filter(creator=cr))
         except FlashcardSet.DoesNotExist:
             pass
 
     for item in identifiers: 
         if item != '' and item != '-':
-            fc.append(FlashcardSet.objects.get(identifier=item))
+            fc.append(FlashcardSet.objects.get(short_id=item))
     
     if request.method == "POST":
         form = SearchFlashcardSetForm(request.POST)
@@ -114,7 +117,7 @@ def select_flashcardset(request, id:str, error= None):
             except FlashcardSet.DoesNotExist:
                 request.method = "GET"
                 return select_flashcardset(request, id=id, error=["Karteikartenset existiert nicht!"])
-            return HttpResponseRedirect(f"/select/{id}id={set.identifier}")
+            return HttpResponseRedirect(f"/select/{id}id={set.short_id}")
     else: 
         form = SearchFlashcardSetForm()
     return render(request, 'flashcardset_selection.html', {"form": form, "fc": fc, "error": error, "recom": recom})
@@ -126,7 +129,7 @@ def learn(response, id, type):
 
     for item in identifiers: 
         if item != '' and item != '-':
-            for flashcard in Flashcard.objects.filter(flashcardset=FlashcardSet.objects.get(identifier=item)).order_by('?'):
+            for flashcard in Flashcard.objects.filter(flashcardset=FlashcardSet.objects.get(short_id=item)).order_by('?'):
                 fc.append(flashcard)
 
     rn.shuffle(fc)
