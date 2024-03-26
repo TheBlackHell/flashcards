@@ -94,6 +94,13 @@ def edit_flashcardset(request, error= None):
 def select_flashcardset(request, id:str, error= None):
     fc = []
     identifiers = id.split(sep='id=')
+    
+    recom = []
+    for cr in ["Martin", "Lena"]:
+        try:
+            recom.append(FlashcardSet.objects.get(creator=cr))
+        except FlashcardSet.DoesNotExist:
+            pass
 
     for item in identifiers: 
         if item != '' and item != '-':
@@ -110,7 +117,7 @@ def select_flashcardset(request, id:str, error= None):
             return HttpResponseRedirect(f"/select/{id}id={set.identifier}")
     else: 
         form = SearchFlashcardSetForm()
-    return render(request, 'flashcardset_selection.html', {"form": form, "fc": fc, "error": error})
+    return render(request, 'flashcardset_selection.html', {"form": form, "fc": fc, "error": error, "recom": recom})
 
 
 def learn(response, id, type):
