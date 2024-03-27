@@ -53,15 +53,14 @@
 </div>
 
 <div class="recom-info-container">
-  {% for creator in recom %}
-  {% for set in creator %}
+  {% for set in recom %}
   <div class="info-container">
     <h1>{{set.name}} von {{set.creator}}</h1>
     <p>
       {{set.description}}
     </p>
+    <button class="recom-add-button" onclick="location.replace(location.href.replace('#', '') + 'id={{set.short_id}}')">Hinzufügen</button>
   </div>
-  {% endfor %}
   {% endfor %}
 </div>
 

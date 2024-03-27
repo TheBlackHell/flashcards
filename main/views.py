@@ -98,10 +98,14 @@ def select_flashcardset(request, id:str, error= None):
     fc = []
     identifiers = id.split(sep='id=')
     
+    # edit to change the recommendation system
     recom = []
     for cr in ["Martin", "Lena"]:
         try:
-            recom.append(FlashcardSet.objects.filter(creator=cr))
+            sets = FlashcardSet.objects.filter(creator=cr)
+            for set in sets:
+                if Flashcard.objects.filter(flashcardset=set).count() != 0:
+                    recom.append(set)
         except FlashcardSet.DoesNotExist:
             pass
 
@@ -117,6 +121,9 @@ def select_flashcardset(request, id:str, error= None):
             except FlashcardSet.DoesNotExist:
                 request.method = "GET"
                 return select_flashcardset(request, id=id, error=["Karteikartenset existiert nicht!"])
+            if Flashcard.objects.filter(flashcardset=set).count() == 0:
+                request.method = "GET"
+                return select_flashcardset(request, id=id, error=["Karteikartenset enthält keine Karteikarten!"])
             return HttpResponseRedirect(f"/select/{id}id={set.short_id}")
     else: 
         form = SearchFlashcardSetForm()
@@ -142,6 +149,7 @@ def learn(response, id, type):
 
     if learning_type == "1":
         item = fc[0]
+
         return render(response, 'learning_types/learn_1.html', {"item": item})
     
     if learning_type == "2":

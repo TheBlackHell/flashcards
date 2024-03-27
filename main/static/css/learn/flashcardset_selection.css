@@ -78,3 +78,24 @@
 .recom-header-container h1{
   font-size: 30px;
 }
+.recom-add-button {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 18px;
+  background-color: rgb(46, 167, 46);
+  border-radius: 10px;
+  font-weight: 600;
+  border-style: none;
+  cursor: pointer;
+  transition: all 0.2s;
+  padding-bottom: 5px;
+  padding-top: 5px;
+  width: 100%;
+}
+.recom-add-button:hover {
+  background-color: rgb(92, 46, 167);
+}
+.recom-add-button:active {
+  color: rgba(255, 255, 255, 0.4);
+  background-color: rgba(92, 46, 167, 0.4);
+}
